@@ -1,7 +1,8 @@
 class Test < ApplicationRecord
 
   def self.sort_by_desc(category)
-    result = Test.where(category_id: category).order(title: :desc).select(:title)
+    Test.joins("JOIN categories ON categories.title = '#{category}' AND
+      categories.id = tests.category_id").order(title: :desc).select(:title)
   end
 
 end
