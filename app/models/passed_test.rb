@@ -1,0 +1,3 @@
+class PassedTest < ApplicationRecord
+
+end
