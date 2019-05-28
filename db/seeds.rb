@@ -6,49 +6,57 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+categories = Category.create!([
+  { title: "backend" },
+  { title: "frontend" }
+])
 
-Test.create(title: "Ruby", level: 1, category_id: 1)
-Test.create(title: "PHP", level: 2, category_id: 1)
-Test.create(title: "CSS", level: 1, category_id: 2)
-Test.create(title: "HTML", level: 3, category_id: 2)
+tests = Test.create!([
+  { title: "Ruby", level: 1, category: categories[0] },
+  { title: "PHP", level: 2,  category: categories[0] },
+  { title: "CSS", level: 1, category: categories[1] },
+  { title: "HTML", level: 3,  category: categories[1] }
+])
 
-Category.create(title: "backend")
-Category.create(title: "frontend")
+users = User.create!([
+  { name: "Иван" },
+  { name: "Петр" },
+  { name: "Вася" }
+  ])
 
-User.create(name: "Иван")
-User.create(name: "Петр")
-User.create(name: "Геннадий")
+questions = Question.create!([
+  { body: "Выберите метод доступа, который
+    только просматривает переменную:", test: tests[0] },
+  { body: "Какой из нижеперичисленных механизмов позволяет
+    субклассу наследовать методы из суперкласса:", test: tests[0] },
+  { body: "Что из этого не является тегом:", test: tests[3] },
+  { body: "Расшифруйте CSS:", test: tests[2] },
+  { body: "Как внедрить php-код в html:", test: tests[2] }
+  ])
 
-Question.create(body: "Выберите метод доступа, который  только
-  просматривает переменную:", test_id: 1)
-Question.create(body: "Какой из нижеперичисленных механизмов позволяет
-  субклассу наследовать методы из суперкласса:", test_id: 1)
-Question.create(body: "Что из этого не является тегом:", test_id: 4)
-Question.create(body: "Расшифруйте CSS:", test_id: 3)
-Question.create(body: "Как внедрить php-код в html:", test_id: 2)
+answers = Answer.create!([
+  { body: "attr_reader", question: questions[0], correct: true },
+  { body: "attr_writer", question: questions[0], correct: false },
+  { body: "attr_accessor", question: questions[0], correct: false },
+  { body: "инкапсуляция", question: questions[1], correct: false },
+  { body: "наследование", question: questions[1], correct: true },
+  { body: "полиморфизм", question: questions[1], correct: false },
+  { body: "абстракция", question: questions[1], correct: false },
+  { body: "bgcolor", question: questions[2], correct: true },
+  { body: "a", question: questions[2], correct: false },
+  { body: "Технология ООП", question: questions[3], correct: false },
+  { body: "Каскадные коды стилей", question: questions[3], correct: true },
+  { body: "Каскадные таблицы стилей", question: questions[3], correct: false },
+  { body: "<?php ... ?>", question: questions[4], correct: true },
+  { body: "<?phphtml ... />", question: questions[4], correct: false }
+  ])
 
-Answer.create(body: "attr_reader" , question_id: 1, correct: true)
-Answer.create(body: "attr_accessor" , question_id: 1, correct: false)
-Answer.create(body: "attr_writer" , question_id: 1, correct: false)
-Answer.create(body: "инкапсуляция" , question_id: 2, correct: false)
-Answer.create(body: "наследование" , question_id: 2, correct: true)
-Answer.create(body: "полиморфизм" , question_id: 2, correct: false)
-Answer.create(body: "абстракция" , question_id: 2, correct: false)
-
-Answer.create(body: "bgcolor" , question_id: 3, correct: true)
-Answer.create(body: "a" , question_id: 3, correct: false)
-
-Answer.create(body: "Технология ООП" , question_id: 4, correct: false)
-Answer.create(body: "Каскадные коды стилей" , question_id: 4, correct: false)
-Answer.create(body: "Каскадные таблицы стилей" , question_id: 4, correct: true)
-
-Answer.create(body: "<?php ... ?>" , question_id: 5, correct: true)
-Answer.create(body: "<?phphtml ... />" , question_id: 5, correct: false)
-
-PassedTest.create(user_id: 1, test_id: 1 , score: 10)
-PassedTest.create(user_id: 1, test_id: 2 , score: 8)
-PassedTest.create(user_id: 1, test_id: 3 , score: 6)
-PassedTest.create(user_id: 1, test_id: 4 , score: 10)
-PassedTest.create(user_id: 2, test_id: 2 , score: 8)
-PassedTest.create(user_id: 2, test_id: 3 , score: 6)
-PassedTest.create(user_id: 2, test_id: 4 , score: 6)
+passedtests = PassedTest.create!([
+  { user: users[0], test: tests[0] , score: 10 },
+  { user: users[0], test: tests[1] , score: 8 },
+  { user: users[0], test: tests[2] , score: 6 },
+  { user: users[0], test: tests[3] , score: 10 },
+  { user: users[1], test: tests[1] , score: 1 },
+  { user: users[1], test: tests[2] , score: 3},
+  { user: users[1], test: tests[3] , score: 4 }
+  ])
