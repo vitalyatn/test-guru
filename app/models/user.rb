@@ -1,11 +1,13 @@
 class User < ApplicationRecord
 
-  has_many :passed_tests
-  has_many :tests, through: :passed_tests
+  has_many :passed_tests, dependent: :nullify
+  has_many :tests, through: :passed_tests, dependent: :nullify
+  belongs_to :author, class_name: "User"
 
-  validates :email, presence: true
-  validates :name, presence: true
+  validates :email, :name, presence: true
 
-  scope :test_list, -> (level) {Test.joins("JOIN passed_tests ON
-    tests.level = #{level} AND passed_tests.test_id = tests.id").select(:title) }
+
+  scope :test_list, -> (level) {
+    Test.joins(:passed_tests).where(tests: {level: level }).select(:title) }
+
 end
