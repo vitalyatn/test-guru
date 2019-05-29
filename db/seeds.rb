@@ -11,17 +11,17 @@ categories = Category.create!([
   { title: "frontend" }
 ])
 
-tests = Test.create!([
-  { title: "Ruby", level: 1, category: categories[0] },
-  { title: "PHP", level: 2,  category: categories[0] },
-  { title: "CSS", level: 1, category: categories[1] },
-  { title: "HTML", level: 3,  category: categories[1] }
-])
-
 users = User.create!([
   { name: "Иван" },
   { name: "Петр" },
   { name: "Вася" }
+  ])
+
+tests = Test.create!([
+    { title: "Ruby", level: 1, category: categories[0], author: users[2] },
+    { title: "PHP", level: 2,  category: categories[0], author: users[2] },
+    { title: "CSS", level: 1, category: categories[1], author: users[2] },
+    { title: "HTML", level: 3,  category: categories[1], author: users[2] }
   ])
 
 questions = Question.create!([
