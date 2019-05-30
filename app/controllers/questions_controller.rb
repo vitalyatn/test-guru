@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
 
-  before_action :find_test
-
+  before_action :find_test, only: [:show, :new, :create, :destroy]
+  before_action :find_question, only: [:show, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
@@ -9,26 +9,32 @@ class QuestionsController < ApplicationController
   end
 
   def show
-     @question = Question.find_by(id: params[:id])
-     render inline: '<strong>Вопрос:</strong> <%= @test.body %>'
+     render inline: '<strong>Вопрос:</strong> <%= @question.body %>'
   end
 
-  def new
-
-  end
+  def new ; end
 
   def create
-    result = ["Class: #{params.class}", "Parametrs: #{params.inspect}"]
-    render plain: result.join("\n")
+    #byebug
+    @question = @test.questions.create(question_params)
   end
 
   def destroy
-    Question.find_by(id: params[:id]).destroy
+    @question.destroy
   end
 
   private
   def find_test
-    @test = Question.find_by(test_id: params[:test_id])
+    #byebug
+    @test = Test.find(params[:test_id])
+  end
+
+  def find_question
+    @question = Question.find(params[:id])
+  end
+
+  def question_params
+    params.require(:question).permit(:body)
   end
 
   def rescue_with_question_not_found
