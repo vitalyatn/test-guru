@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
 
-  before_action :find_test, only: [:show, :new, :create, :destroy]
+  before_action :find_test, only: [:new, :create]
   before_action :find_question, only: [:show, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
@@ -12,10 +12,9 @@ class QuestionsController < ApplicationController
      render inline: '<strong>Вопрос:</strong> <%= @question.body %>'
   end
 
-  def new ; end
+  def new; end
 
   def create
-    #byebug
     @question = @test.questions.create(question_params)
   end
 
@@ -25,7 +24,6 @@ class QuestionsController < ApplicationController
 
   private
   def find_test
-    #byebug
     @test = Test.find(params[:test_id])
   end
 
