@@ -1,0 +1,4 @@
+<h1> Редактирование вопроса для теста <%= question_header(@question.test_id) %></h1>
+
+<%= render 'form' %>
+<%= link_to 'Back', test_questions_path(@question.test_id) %>
