@@ -3,8 +3,12 @@ class Test < ApplicationRecord
   belongs_to :category
   has_many :questions, dependent: :destroy
   has_many :passed_tests, dependent: :destroy
+
   has_many :users, through: :passed_tests
   belongs_to :author, class_name: "User"
+
+  has_many :test_passages
+  has_many :users, through: :test_passages
 
   validates :title, presence: true,
                     uniqueness: { scope: :level }

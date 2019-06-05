@@ -12,9 +12,9 @@ categories = Category.create!([
 ])
 
 users = User.create!([
-  { name: "Иван" },
-  { name: "Петр" },
-  { name: "Вася" }
+  { name: "Иван", email: "ivan@example.com" },
+  { name: "Петр", email: "petr@example.com" },
+  { name: "Вася", email: "vasya@example.com" }
   ])
 
 tests = Test.create!([
