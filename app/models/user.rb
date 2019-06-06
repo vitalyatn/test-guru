@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :email, :name, presence: true
 
   def test_passage(test)
-    test_passages.order(id: :desc).find_by(test_id: test.id)
+    test_passages.order(id: :desc).find_by(test: test)
   end
 
   def test_list (level)
