@@ -37,7 +37,7 @@ class TestPassage < ApplicationRecord
   end
 
   def correct_answer?(answer_ids)
-    correct_answers.ids.sort == answer_ids.map(&:to_i).sort unless answer_ids.nil?
+    correct_answers.ids.sort == Array(answer_ids).map(&:to_i).sort 
   end
 
   def correct_answers
@@ -45,7 +45,7 @@ class TestPassage < ApplicationRecord
   end
 
   def next_question
-    if self.new_record?
+    if new_record?
       test.questions.first if test.present?
     else
       test.questions.order(:id).where('id > ?', current_question.id).first
