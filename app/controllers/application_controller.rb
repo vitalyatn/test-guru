@@ -2,8 +2,6 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
-  after_action :delete_cookie, only: :redirect_path
-
   helper_method :current_user,
                 :logged_in?,
                 :redirect_path
@@ -26,10 +24,6 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_path
-    cookies[:path] || tests_path
-  end
-
-  def delete_cookie
-    cookies.delete :path
+    cookies[:path].delete(:path) || tests_path
   end
 end
