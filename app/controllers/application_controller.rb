@@ -1,15 +1,17 @@
 class ApplicationController < ActionController::Base
+
   protect_from_forgery with: :exception
+
+  after_action :delete_cookie, only: :redirect_path
 
   helper_method :current_user,
                 :logged_in?,
-                :source_url
+                :redirect_path
   private
 
   def authenticate_user!
     unless current_user
       cookies[:path] = request.path
-      #byebug
       redirect_to login_path, alert: 'Are you a Guru? Verify your email and password please'
     end
     cookies[:email] = current_user&.email
@@ -23,7 +25,11 @@ class ApplicationController < ActionController::Base
     current_user.present?
   end
 
-  def source_url
-    cookies[:path]
+  def redirect_path
+    cookies[:path] || tests_path
+  end
+
+  def delete_cookie
+    cookies.delete :path
   end
 end

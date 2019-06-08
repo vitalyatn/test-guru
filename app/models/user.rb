@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   validates :email, presence: true,
                     uniqueness: true,
-                    format: {with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/, message: 'Email must be format: ivan@ivanov.com' }
+                    format: {with: URI::MailTo::EMAIL_REGEXP, message: 'Email must be format: ivan@ivanov.com' }
 
   has_secure_password
 
