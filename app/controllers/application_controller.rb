@@ -24,6 +24,6 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_path
-    cookies[:path].delete(:path) || tests_path
+    cookies.delete(:path) || tests_path
   end
 end
