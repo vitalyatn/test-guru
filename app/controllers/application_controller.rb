@@ -2,11 +2,11 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
-  def after_sign_in_path_for(resource)
-    if resource.is_a?(Admin)
-      admin_tests_path 
+  def after_sign_in_path_for(user)
+    if user.admin?
+      admin_tests_path
     else
-      stored_location_for(resource)
+      super
     end
   end
 

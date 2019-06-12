@@ -11,12 +11,7 @@ class Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
    def create
      super
-     if current_user #&& current_user.sign_in_count == 1
-       unless session[:display_welcome]
-         flash[:notice] = "Welcome, #{current_user.first_name}!"
-         session[:display_welcome] = true
-       end
-     end
+     flash[:notice] = "Welcome, #{current_user.first_name}!" if current_user   #&& current_user.sign_in_count == 1
    end
 
   # DELETE /resource/sign_out

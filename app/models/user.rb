@@ -16,9 +16,10 @@ class User < ApplicationRecord
 
   has_many :authored_tests, class_name: "Test", foreign_key: "author_id", dependent: :nullify
 
-  #validates :email, presence: true,
-                    #uniqueness: true,
-                    #format: {with: URI::MailTo::EMAIL_REGEXP, message: 'Email must be format: ivan@ivanov.com' }
+
+  def admin?
+    is_a?(Admin)
+  end
 
   def test_passage(test)
     test_passages.order(id: :desc).find_by(test: test)
