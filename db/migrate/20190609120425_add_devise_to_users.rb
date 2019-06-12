@@ -44,7 +44,7 @@ class AddDeviseToUsers < ActiveRecord::Migration[5.2]
     change_column_default :users, :email, from: nil, to: ''
     change_column_null(:users, :email, false)
 
-    remove_index(:users, :password_digest)
+    #remove_index(:users, :password_digest)
 
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
