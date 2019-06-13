@@ -1,10 +1,10 @@
-<%= link_to 'All tests', tests_path %>
-<h1>The <%= @test_passage.test.title %> Test was Completed!</h1>
-Your result:
+<%= link_to t('.all_tests'), tests_path %>
+<h1><%= t('.header', title: @test_passage.test.title) %></h1>
+<%= t('.your_result') %>
 <% if @test_passage.successful? %>
   <p class="succesful"> <%= @test_passage.calculate_result %>% </p>
-  Test has successfuled!
+  <%= t('.test_has_successfuled') %>
 <% else %>
   <p class="fail"> <%= @test_passage.calculate_result %>% </p>
-  Test has failed!
+  <%= t('.test_has_failed') %>
 <% end %>

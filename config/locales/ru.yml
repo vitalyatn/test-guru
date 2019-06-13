@@ -1,2 +1,148 @@
 ru:
   hello: "Привет, мир"
+
+  devise:
+    confirmations:
+      new:
+        #resend_confirmation_instructions: 'Ja:Resend confirmation instructions'
+        #email: 'Ja:Email'
+    mailer:
+      confirmation_instructions:
+        welcome: 'Добро пожаловать %{email}!'
+        you_can_confirm: 'Подтвердите аккаунт, перейдя по ссылке ниже'
+        confirm_my_account: 'Подтвердить аккаунт'
+      reset_password_instructions:
+        #hello: 'Ja:Hello'
+        #someone_has_requested: 'Ja:Someone has requested a link to change your password, and you can do this through the link below.'
+        #change_my_password: 'Ja:Change my password'
+        #if_you_did_not_request: 'Ja:If you did not request this, please ignore this email.'
+        #your_password_will_not_change: 'Ja:Your password will not change until you access the link above and create a new one.'
+      unlock_instructions:
+        #hello: 'Ja:Hello'
+        #you_account_has_been_locked: 'Ja:Your account has been locked due to an excessive amount of unsuccessful sign in attempts.'
+        #click_the_link_below: 'Ja:Click the link below to unlock your account'
+        #unlock_my_account: 'Ja:Unlock my account'
+    passwords:
+      new:
+        forgot_your_password: "Забыли пароль?"
+        send_me_reset_password_instructions: "Сбросить пароль"
+        email: "Почта"
+      edit:
+        #change_your_password: "Ja:Change your password"
+        #new_password: "Ja:New password"
+        #confirm_new_password: "Ja:Confirm new password"
+        #change_my_password: "Ja:Change my password"
+    registrations:
+      edit:
+        first_name: "Имя"
+        last_name: "Фамилия"
+        edit: "Редактировать"
+        email: "Почта"
+        password: "Пароль"
+        characters_minimum: "символов минимум"
+        password_confirmation: "Подтверждение пароля"
+        current_password: "Текущий пароль"
+        #cancel_my_account: "Ja:Cancel my account"
+        update: "Обновить"
+        back: "Назад"
+        are_you_sure: "Вы уверены?"
+        #unhappy: "Ja:Unhappy?"
+        #we_need_password_to_confirm: "Ja:(we need your current password to confirm your changes)"
+        #leave_blank_if_no_change: "Ja:(leave blank if you don't want to change it)"
+      new:
+        first_name: "Имя"
+        last_name: "Фамилия"
+        sign_up: "Регистрация"
+        email: "Почта"
+        password: 'Пароль'
+        characters_minimum: "символов минимум"
+        password_confirmation: "Подтверждение пароля"
+        become: "Вступайте в Guru!"
+    sessions:
+      new:
+        sign_in: "Вход"
+        email: 'Почта'
+        password: 'Пароль'
+        remember_me: "Запомнить меня"
+        enter: "Войдите во врата Гуру"
+    shared:
+      links:
+        forgot_your_password: "Забыли пароль?"
+        did_not_receive_confirm_instructions: "Не получили письмо с подтверждением?"
+        did_not_receive_unlock_instructions: "Ja:Did not receive unlock instructions?"
+        sign_in_with: "Войти с помощью"
+        sign_in: "Вход"
+        sign_up: "Регистрация"
+    unlocks:
+      new:
+        resend_unlock_instructions: "Отправить еще раз письмо с разблокированием"
+        email: 'Почта'
+
+  helpers:
+    submit:
+      test:
+        create: "Создать Тест"
+        update: "Обновить Тест"
+    select:
+      prompt: "Выберите категорию"
+    label:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"
+
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружена %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
+    navigation:
+      logout: "Выход"
+      sign_up: "Регистрация"
+      sign_in: "Вход"
+      welcome: "Добро пожаловать, %{name}, в Guru"
+
+  tests:
+    index:
+      header: "Доступные тесты"
+      title: "Название"
+      level: "Уровень"
+      count: "Количество вопросов"
+      actions: "Действие"
+    test:
+      button_name: "Старт"
+      hero: "Герой"
+      elementary: "Начинающий"
+      advanced: "Продвинутый"
+      hard: "Профессионал"
+
+  test_passages:
+    result:
+      header: "Тест %{title} успешно завершен!"
+      all_tests: "Все тесты"
+      your_result: "Ваш результат:"
+      test_has_failed: "Тест не пройден"
+      test_has_successfuled: "Тест успешно пройден"
+    show:
+      question_number: "Вопрос № %{number} из %{count}"
+      next: "Следующий"
+
+  admin:
+    tests:
+      create:
+        success: "Тест успешно создан"
+      index:
+        header: "Доступные тесты"
+        new: "Новый тест"
+      test:
+        show: "показать"
+        edit: "редактировать"
+        delete: "удалить"
+    nav:
+      header: "Панель администрирования TestGuru"
+
+  tests_mailer:
+    completed_test:
+      subject: "Вы успешно завершили тест на TestGuru!"
