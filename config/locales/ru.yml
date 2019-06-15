@@ -22,11 +22,12 @@ ru:
         many: "Обнаружено %{count} ошибок"
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
-    navigation:
+    nav:
       logout: "Выход"
       sign_up: "Регистрация"
       sign_in: "Вход"
-      welcome: "Добро пожаловать, %{name}, в Guru"
+      welcome_html: 'Добро пожаловать, %{name}, в Guru'
+      panel: "Панель управления"
 
   tests:
     index:
@@ -70,7 +71,9 @@ ru:
         edit: "редактировать"
         delete: "удалить"
     nav:
-      header: "Панель администрирования TestGuru"
+      logout: "Выход"
+      header: "Панель администрирования"
+      welcome_html: 'Добро пожаловать, %{name}, в Guru'
 
   tests_mailer:
     completed_test:

@@ -19,7 +19,7 @@ en:
       header:
         one: "%{count} error detected"
         other: "%{count} errors detected"
-    navigation:
+    nav:
       logout: "Logout"
       sign_up: "Sign up"
       sign_in: "Sign in"
@@ -50,7 +50,7 @@ en:
         edit: "edit"
         delete: "delete"
     nav:
-      header: "TestGuru Admin Panel"
+      header: "Admin Panel"
 
   tests_mailer:
     completed_test:
