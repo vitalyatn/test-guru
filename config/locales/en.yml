@@ -24,6 +24,7 @@ en:
       sign_up: "Sign up"
       sign_in: "Sign in"
       welcome: "Welcome, %{name},  Guru"
+      panel: "Admin Panel"
   tests:
     index:
       header: "Tricky Tests"
@@ -33,24 +34,58 @@ en:
       actions: "Actions"
     test:
       button_name: "Start"
+      hero: "Hero"
+      elementary: "Elementary"
+      advanced: "Advanced"
+      hard: "Hard"
 
   test_passages:
     result:
       header: "The %{title} Test was Completed!"
+      all_tests: "All tests"
+      your_result: "Your result:"
+      test_has_failed: "Test has failed."
+      test_has_successfuled: "Test has successfull!"
+    show:
+      question_number: "Question № %{number} of %{count}"
+      next: "Next"
 
   admin:
+    questions:
+      show:
+        new_answer: "New answer"
+        back: "Back"
+        edit: "Edit"
+      question:
+        show: "show"
+        edit: "edit"
+        delete: "delete"
+        confirm: "Are you sure?"
+      edit:
+        back: "Back"
+      new:
+        back: "Back"
+        edit: "Edit"
+
     tests:
       create:
         success: "Test was successfully created."
       index:
         header: "Tricky Tests"
+        title: "Title"
+        level: "Level"
+        count: "Questions count:"
+        actions: "Actions"
         new: "New Test"
+        unauthorized: 'You are not authorized to view this page'
       test:
         show: "show"
         edit: "edit"
         delete: "delete"
     nav:
+      logout: "Log out"
       header: "Admin Panel"
+      welcome_html: 'Welcome, %{name}, Guru'
 
   tests_mailer:
     completed_test:
