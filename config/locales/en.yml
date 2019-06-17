@@ -49,6 +49,9 @@ en:
     show:
       question_number: "Question № %{number} of %{count}"
       next: "Next"
+    gist:
+      success: "Gist was successfully created!"
+      failure: "An error occurred while saving gist"
 
   admin:
     questions:
