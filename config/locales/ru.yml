@@ -1,7 +1,6 @@
 ru:
   hello: "Привет, мир"
 
-
   helpers:
     submit:
       test:
@@ -22,11 +21,12 @@ ru:
         many: "Обнаружено %{count} ошибок"
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
-    navigation:
+    nav:
       logout: "Выход"
       sign_up: "Регистрация"
       sign_in: "Вход"
-      welcome: "Добро пожаловать, %{name}, в Guru"
+      welcome_html: 'Добро пожаловать, %{name}, в Guru'
+      panel: "Панель управления"
 
   tests:
     index:
@@ -44,16 +44,32 @@ ru:
 
   test_passages:
     result:
-      header: "Тест %{title} успешно завершен!"
+      header: "Тест %{title} завершен!"
       all_tests: "Все тесты"
       your_result: "Ваш результат:"
       test_has_failed: "Тест не пройден"
-      test_has_successfuled: "Тест успешно пройден"
+      test_has_successfuled: "Тест успешно пройден!"
     show:
       question_number: "Вопрос № %{number} из %{count}"
       next: "Следующий"
 
   admin:
+    questions:
+      show:
+        new_answer: "Новый ответ"
+        back: "Назад"
+        edit: "Редактировать"
+      question:
+        show: "показать"
+        edit: "редактировать"
+        delete: "удалить"
+        confirm: "Вы уверены?"
+      edit:
+        back: "Назад"
+      new:
+        back: "Назад"
+        edit: "Редактировать"
+
     tests:
       create:
         success: "Тест успешно создан"
@@ -65,12 +81,15 @@ ru:
         actions: "Действие"
         header: "Доступные тесты"
         new: "Новый тест"
+        unauthorized: 'У вас нет прав для просмотра этой страницы'
       test:
         show: "показать"
         edit: "редактировать"
         delete: "удалить"
     nav:
-      header: "Панель администрирования TestGuru"
+      logout: "Выход"
+      header: "Панель администрирования"
+      welcome_html: 'Добро пожаловать, %{name}, в Guru'
 
   tests_mailer:
     completed_test:

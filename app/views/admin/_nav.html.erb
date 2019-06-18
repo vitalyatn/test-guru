@@ -1,8 +1,11 @@
-<div class="nav nav-admin">
-  <span class="nav-admin title"><%= t('.header') %></span>
+  <nav class="navbar navbar-dark" style="background-color: #094280;">
+    <div class="d-flex justify-content-start align-items-center">
+      <div><%= link_to 'TestGuru', root_path, class: 'navbar-brand' %></div>
+      <div class="navbar-brand"><%= t('.header') %></div>
+    </div>
 
-  <div class="nav-admin user">
-    <%= t('shared.navigation.welcome', name: current_user.email) %>
-    <%= link_to t('shared.navigation.logout'), destroy_user_session_path, method: :delete %>
-  </div>
-</div>
+    <div class="col-6 d-flex justify-content-end align-items-center">
+      <div class="text-white"><%= t('.welcome_html', name: current_user.first_name.capitalize)  %></div>
+      <div class="offset-1"><%= link_to t('.logout'), destroy_user_session_path, method: :delete, class: 'text-white' %></div>
+    </div>
+  </nav>

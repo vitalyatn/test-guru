@@ -7,9 +7,12 @@ module ApplicationHelper
     link_to 'Project',"https://github.com/#{author}/#{repo}", target: :_blank
   end
 
-  def flash_message(key)
-    content_tag :p, flash[key], class: "flash #{key}" if flash[key]
+  def flash_class(level)
+    {
+      notice: 'alert-info',
+      success: 'alert-success',
+      error: 'alert-danger',
+      alert: 'alert-warning'
+    } [level.to_sym]
   end
-
-
 end
