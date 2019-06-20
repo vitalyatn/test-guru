@@ -46,6 +46,8 @@ gem 'jquery-rails'
 gem 'bootstrap', '~> 4.3.1'
 
 
+gem "octokit", "~> 4.0"
+gem 'dotenv-rails', groups: [:development, :test]
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

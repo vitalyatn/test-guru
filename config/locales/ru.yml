@@ -1,6 +1,8 @@
 ru:
   hello: "Привет, мир"
 
+  description: "Вопрос из теста %{title} с TestGuru"
+
   helpers:
     submit:
       test:
@@ -55,8 +57,15 @@ ru:
     gist:
       success: "Gist успешно сохранен!"
       failure: "Во время сохранения gist произошла ошибка"
+      about_question: "Вопрос по тесту #{title} из TestGuru"
 
   admin:
+    gists:
+      index:
+        header: "Созданные Gist"
+        question: "Вопрос"
+        gist_url: "Ссылка на gist"
+        user_email: "Email пользователя"
     questions:
       show:
         new_answer: "Новый ответ"
