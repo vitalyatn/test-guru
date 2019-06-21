@@ -8,16 +8,15 @@ class TestPassagesController < ApplicationController
   def result; end
 
   def gist
-    result = GistQuestionService.new(@test_passage.current_question).call
-    flash_options = if result.public?
-      { notice: "#{t('.success')} #{view_context.link_to('Перейти', result.git_pull_url, target: :_blank)}." }
+    service = GistQuestionService.new(@test_passage.current_question)
+    result = service.call
+    if service.success?
+      flash[:notice] = "#{t('.success')} #{view_context.link_to('Перейти', result.git_pull_url, target: :_blank)}."
+      Gist.create(user: @test_passage.user, question: @test_passage.current_question, url: result.git_pull_url)
     else
-      { alert: t('.failure') }
+      flash[:alert] = t('.failure')
     end
-
-    Gist.create(user: @test_passage.user, question: @test_passage.current_question, url: result.git_pull_url)
-
-    redirect_to @test_passage, flash_options
+    redirect_to @test_passage
   end
 
   def update
