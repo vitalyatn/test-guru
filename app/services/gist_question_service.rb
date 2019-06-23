@@ -1,7 +1,7 @@
 class GistQuestionService
 
   ACCESS_TOKEN = ENV['GITHUB_TOKEN']
-  def initialize(question, client: nil)
+  def initialize(question)
     @question = question
     @test = @question.test
     @client = Octokit::Client.new(access_token: ACCESS_TOKEN);

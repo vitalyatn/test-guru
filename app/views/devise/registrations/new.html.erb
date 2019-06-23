@@ -26,8 +26,10 @@
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation, t('.password_confirmation')%><br />
+  <div id="password_confirm" class="field">
+    <%= f.label :password_confirmation, t('.password_confirmation'), title: 'Tooltip on top'%>
+    <%= octicon 'info', class: 'hide', height: '24', :"aria-label" => "Help text" %><br />
+
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 

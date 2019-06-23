@@ -1,7 +1,7 @@
 class Gist < ApplicationRecord
 
-  belongs_to :user, dependent: :destroy
-  belongs_to :question, dependent: :destroy
+  belongs_to :user
+  belongs_to :question
 
   validates :url, presence: true
 end
