@@ -49,8 +49,17 @@ en:
     show:
       question_number: "Question № %{number} of %{count}"
       next: "Next"
+    gist:
+      success: "Gist was successfully created!"
+      failure: "An error occurred while saving gist"
 
   admin:
+    gists:
+      index:
+        header: "Created Gist"
+        question: "Qusetion"
+        gist_url: "Gist url"
+        user_email: "Email пользователя"
     questions:
       show:
         new_answer: "New answer"
