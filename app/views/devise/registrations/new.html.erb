@@ -27,10 +27,11 @@
   </div>
 
   <div id="password_confirm" class="field">
-    <%= f.label :password_confirmation, t('.password_confirmation'), title: 'Tooltip on top'%>
-    <%= octicon 'info', class: 'hide', height: '24', :"aria-label" => "Help text" %><br />
-
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.label :password_confirmation, t('.password_confirmation')%>
+    <div id="message" data-toggle="tooltip" data-placement="top" title=" ">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <%= octicon 'info', class: 'hide', height: '24', :"aria-label" => "Help text" %><br />
+    </div>
   </div>
 
   <div class="actions">
