@@ -7,6 +7,13 @@
   <b>
     <%= t('.question_number', number: @test_passage.current_question_number, count:  @test_passage.questions_count) %>
   </b>
+
+  <%= content_tag :div, class: 'progress' do  %>
+    <%= content_tag :div, class:'progress-bar',
+                          data: {current_question: @test_passage.current_question_number,
+                          total_questions:  @test_passage.questions_count } do %>
+    <% end %>
+  <% end %>
 </p>
 
 <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
@@ -17,5 +24,5 @@
     </p>
   <% end %>
   <p><%= link_to 'Gist Question', gist_test_passage_path(@test_passage), method: :post %></p>
-  <p><%= form.submit t('.next') %></p>
+  <p><%= form.submit t('.next'), id: 'progress_bar' %></p>
 <% end %>
