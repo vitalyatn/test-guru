@@ -20,6 +20,5 @@ module TestGuru
 
     config.autoload_paths << "#{Rails.root}/lib/clients"
 
-    config.assets.initialize_on_precompile = false
   end
 end
