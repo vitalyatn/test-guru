@@ -81,7 +81,6 @@ ru:
       new:
         back: "Назад"
         edit: "Редактировать"
-
     tests:
       create:
         success: "Тест успешно создан"
@@ -98,6 +97,8 @@ ru:
         show: "показать"
         edit: "редактировать"
         delete: "удалить"
+      form_inline:
+        submit: "OK"
     nav:
       logout: "Выход"
       header: "Панель администрирования"

@@ -75,7 +75,6 @@ en:
       new:
         back: "Back"
         edit: "Edit"
-
     tests:
       create:
         success: "Test was successfully created."
@@ -91,6 +90,8 @@ en:
         show: "show"
         edit: "edit"
         delete: "delete"
+      form_inline:
+        submit: "OK"
     nav:
       logout: "Log out"
       header: "Admin Panel"
