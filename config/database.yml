@@ -27,6 +27,7 @@
 # production:
 #   <<: *default
 #   database: db/production.sqlite3
+
 default: &default
   adapter: postgresql # или sqlite3, или mysql
   encoding: unicode
@@ -44,3 +45,7 @@ development:
 test:
   <<: *default
   database: test_guru_test
+
+production:
+  <<: *default
+  database: test_guru_production
