@@ -66,7 +66,7 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
   config.action_mailer.default_url_options = { host: 'https://glacial-harbor-90375.herokuapp.com/' }
   config.action_mailer.delivery_method = :smtp
-  congig.action_mailer = {
+  config.action_mailer = {
     address: 'smtp.gmail.com',
     port: 587,
     user_name: ENV['SMTP_USERNAME'],
