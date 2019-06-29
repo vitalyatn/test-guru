@@ -1,11 +1,11 @@
 class FeedbackMailer < ApplicationMailer
 
   before_action { @mailer = params[:email] }
-  #default from: @mailer
+  default to: 'supervitas28@gmail.com'
+
   def send_feedback(feedback)
-    @user = 'supervitas28@gmail.com'
     @body = feedback.body
-    mail to: @user, from: @mailer
+    mail from: @mailer
   end
 
 end
