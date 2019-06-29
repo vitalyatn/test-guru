@@ -1,8 +1,11 @@
-<p>
-<br>
-<%= current_year %>
-<br>
-<%= github_url("vitalyatn", "test-guru")  %><br>
-Создание тестов по программированию <br>
-<%= link_to 'Учебный проект в онлайн-школе Thinknetica', 'https://thinknetica.com',target: :_blank %>
-</p>
+
+<div class="row">
+  <div class="col-md-5 mr-auto">
+    <%= current_year %>
+    <br>
+    <%= github_url("vitalyatn", "test-guru")  %><br>
+    Создание тестов по программированию <br>
+    <%= link_to 'Учебный проект в онлайн-школе Thinknetica', 'https://thinknetica.com',target: :_blank %>
+  </div>
+  <div class="col-md-3 ">  <%= link_to 'Обратная связь', new_feedback_path  %> </div>
+</div>
