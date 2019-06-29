@@ -4,8 +4,7 @@ class FeedbackMailer < ApplicationMailer
 
   default from: @mailer
 
-  def send_feedback(feedback)   #byebug
-    byebug
+  def send_feedback(feedback)  
     @user = 'supervitas28@gmail.com'
     @body = feedback.body
     mail to: @user
