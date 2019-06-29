@@ -1,0 +1,14 @@
+<%= form_with model:  @feedback, local: true do |form| %>
+  <%= render 'shared/errors', resource: @feedback %>
+  <p>
+    <%= form.label :email, t('.email') %><br />
+    <%= form.email_field :email, autofocus: true, autocomplete: "email" %>
+  </p>
+
+  <p>
+    <%= form.label :body, t('.feedback') %> <br>
+    <%= form.text_area :body, class: 'form-control', cols: "30", rows: "10"  %>
+  </p>
+
+  <p><%= form.submit t('.button'), class: 'btn btn-primary' %></p>
+<% end %>
