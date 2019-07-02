@@ -1,0 +1,19 @@
+<div class="row justify-content-start">
+    <div class="col-12">
+      <%= link_to 'Добавить новый бейдж', new_admin_bage_path %>
+    </div>
+    <div class="col-12">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Название</th>
+            <th> Изображение </th>
+            <th class="text-center" colspan="3">Действие</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @bages %>
+        </tbody>
+      </table>
+    </div>
+</div>

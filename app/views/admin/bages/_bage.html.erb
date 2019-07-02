@@ -1,0 +1,15 @@
+<tr>
+  <td> <%= bage.title %> </td>
+  <td>  <%= image_tag bage.image.variant(resize: "64x64"), class: 'rounded-circle float-left img-thumbnail' if bage.image.attached? %> </td>
+  <td class="align-middle"><%= link_to 'показать', admin_bage_path(bage) %></td>
+  <td class="align-middle">
+    <%= link_to 'редактировать',
+                edit_admin_bage_path(bage) %>
+  </td>
+  <td class="align-middle">
+     <%= link_to t('.delete'),
+                  admin_bage_path(bage),
+                  method: :delete,
+                  data: {confirm: 'Are you sure?'}%>
+  </td>
+</tr>

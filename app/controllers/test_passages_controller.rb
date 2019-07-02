@@ -24,7 +24,10 @@ class TestPassagesController < ApplicationController
 
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
-      redirect_to result_test_passage_path(@test_passage)
+      @bages = RulesService.new(@test_passage, current_user).give_bage
+      current_user.bages << @bages unless @bages.empty?
+      #redirect_to result_test_passage_path(@test_passage)
+      redirect_to result_test_passage_path(@test_passage, bages: @bages)
     else
       render :show
     end

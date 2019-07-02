@@ -5,7 +5,7 @@
     </div>
 
     <div class="col-6 d-flex justify-content-end align-items-center">
-      <div class="text-white"><%= t('.welcome_html', name: current_user.first_name.capitalize)  %></div>
+      <div class="text-white"><%= link_to t('.welcome_html', name: current_user.first_name.capitalize), profile_path(current_user)  %></div>
       <div class="offset-1"><%= link_to t('.logout'), destroy_user_session_path, method: :delete, class: 'text-white' %></div>
     </div>
   </nav>

@@ -1,0 +1,14 @@
+<h1>  Создание бейджа  </h1>
+<%= form_with model: [:admin, @bage] do |form| %>
+  <%= render 'shared/errors', resource: @bage %>
+  <div>
+    <%= form.label :title, 'Название' %>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+   <%= form.label :image, 'Изображение' %>
+   <%= form.file_field :image %>
+ </div>
+ <br>
+  <%= form.submit %>
+<% end %>
