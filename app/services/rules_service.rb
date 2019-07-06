@@ -6,40 +6,36 @@ class RulesService
   end
 
   def give_bage
-    bages = []
-    bages << Bage.find_by(title: "отлично") if first_attempt?
-    bages << Bage.find_by(title: "три подряд успешно пройденных теста") if three_last_successful?
-    bages << Bage.find_by(title: "все тесты категории backend") if all_backend?
-
-    # end
+    Bage.select { |badge| send("rule_#{badge.rule}?", badge.value) }
   end
+
 
   private
 
-  def first_attempt?
-    @current_user.test_passages.where(test_id: @test_passage.test).count == 1
+  def rule_all_category_completed?(category_id)
+    list_tests_general= Test.select { |test| test.category.id == category_id.to_i }
+    list_user_tests = @current_user.tests.select {|test| test.category.id == category_id.to_i}
+    (list_user_tests - list_tests_general).empty?
   end
 
-  def all_backend?
-    backend = Category.find_by(title: "backend")
-    list_title = []
-    Test.all.where(category: backend).each do |test|
-      list_title << test.title
-    end
-    list_user_title = []
-    @current_user.tests.where(category: backend).each do |test|
-      list_user_title << test.title
-    end
-    (list_user_title - list_title).empty?
+  def rule_first_attempt?(value)
+    @current_user.test_passages.where(test_id: @test_passage.test).count == 1 && @test_passage.successful
   end
 
-  def three_last_successful?
-   result = true
+  def rule_first_test_completed?(category_id)
+    @current_user.tests.where(category_id: category_id).count == 1 &&
+    @test_passage.test.category_id == category_id && @test_passage.successful
+  end
+
+  def rule_three_last_successful?(value)
    tests = @current_user.test_passages.order(created_at: :desc)[0..2]
-   tests.each do |test|
-     result = result && test.successful?
-   end
-   result
+   return false unless tests.all?{ |test| test.successful == true }
+   return false if tests.pluck(:test_id).uniq.length != 3
+   #tests_id = tests.pluck(:test_id).uniq if tests.pluck(:test_id).uniq.length == 3
+   a = @current_user.test_passages.where(test: tests[0].test_id, successful: true).count
+   b = @current_user.test_passages.where(test: tests[1].test_id, successful: true).count
+   c = @current_user.test_passages.where(test: tests[2].test_id, successful: true).count
+   [a, b, c].uniq.size == 1
   end
 
 end

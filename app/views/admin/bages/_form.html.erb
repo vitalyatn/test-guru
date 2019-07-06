@@ -9,6 +9,29 @@
    <%= form.label :image, 'Изображение' %>
    <%= form.file_field :image %>
  </div>
+ <div>
+  <%= form.label :rule, 'Правило' %>
+  <%= form.select(:rule, [['все категории', 'all_category_completed'],
+                          ['первый тест категории', 'first_test_completed'],
+                          ['тест пройден с первой попытки', 'first_attempt'],
+                          ['три подряд успешно пройденных теста', 'three_last_successful']], prompt: "Выберите правило") %>
+  <!-- <%= form.select(:rule) do %>
+  <% [['Категория', 1], ['Уровень', 2]].each do |type| %>
+    <%= content_tag(:option, type.first, value: type.last) %>
+    <% end %>
+  <% end %> -->
+  <!-- <%= select(:bage, :rule, [['Категория', 1], ['Уровень', 2], ['Berlin', 3]]) %> -->
+</div>
+
+
+ <div class="category hide">
+   <%= form.label :value, 'Значение' %>
+   <%= form.collection_select :category, Category.all, :id, :title, prompt: true %>
+ </div>
+ <div class="level hide">
+   <%= form.label :value, 'Значение' %>
+   <%= form.select(:level, [['Легкий', 'easy'], ['Средний', 'medium'], ['Профессионал', 'hard']], prompt: "Выберите правило") %>
+ </div>
  <br>
   <%= form.submit %>
 <% end %>

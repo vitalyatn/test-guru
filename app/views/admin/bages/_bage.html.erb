@@ -1,6 +1,8 @@
 <tr>
-  <td> <%= bage.title %> </td>
-  <td>  <%= image_tag bage.image.variant(resize: "64x64"), class: 'rounded-circle float-left img-thumbnail' if bage.image.attached? %> </td>
+  <td class="align-middle"> <%= bage.title %> </td>
+  <td class="align-middle">  <%= image_tag bage.image.variant(resize: "64x64"), class: 'rounded-circle float-left img-thumbnail' if bage.image.attached? %> </td>
+  <td class="align-middle"> <%= bage.rule %> </td>
+  <td class="align-middle"> <%= bage.value %> </td>
   <td class="align-middle"><%= link_to 'показать', admin_bage_path(bage) %></td>
   <td class="align-middle">
     <%= link_to 'редактировать',

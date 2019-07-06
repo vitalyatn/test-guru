@@ -39,7 +39,8 @@ class Admin::BagesController < Admin::BaseController
   end
 
   def bage_params
-    params.require(:bage).permit(:title, :image)
+    #byebug
+    params.require(:bage).permit(:title, :image, :rule, :value)
   end
 
 end
