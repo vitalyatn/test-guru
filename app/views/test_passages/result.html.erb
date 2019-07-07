@@ -9,7 +9,7 @@
   <%= t('.test_has_failed') %>
 <% end %>
 
-<% unless params[:bages].empty? %>
+<% unless params[:bages].nil? %>
   <h3>Вы заработали:</h3>
   <% params[:bages].each do |bage| %>
   <% bage = Bage.find(bage) %>
