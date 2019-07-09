@@ -1,0 +1,16 @@
+<div class="row mt-5 flex-cols justify-content-start">
+  <div class="col-auto">
+    <img src="/images/profile.png" class="rounded-circle float-left img-thumbnail ml-3" alt="..." >
+  </div>
+  <div class="col">
+    <p> <h4> Имя:  <%= current_user.first_name.capitalize %></h4> </p>
+    <p> <h4>  Фамилия: <%= current_user.last_name.capitalize unless current_user.last_name.nil? %></h4> </p>
+    <p> <h4>  E-mail: <%=  current_user.email %></h4> </p>
+    <p> <h4>  Мои награды: <% current_user.bages.each do |bage| %>
+     <div class="col">
+     <%= image_tag bage.image.variant(resize: "64x64"), class: 'rounded-circle float-left img-thumbnail', title: bage.title  if bage.image.attached? %>
+    </div>
+    <% end %>
+    </h4> </p>
+  </div>
+</div>

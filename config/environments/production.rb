@@ -75,6 +75,8 @@ Rails.application.configure do
     enable_starttls_auto: true }
 
 
+    # Хранить файлы в Amazon S3.
+    #config.active_storage.service = :amazon
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

@@ -14,6 +14,9 @@ class User < ApplicationRecord
   has_many :test_passages
   has_many :tests, through: :test_passages
 
+  has_many :received_bages
+  has_many :bages, through: :received_bages
+
   has_many :gists, dependent: :destroy
   has_many :questions, through: :gists
 

@@ -8,3 +8,13 @@
   <p class="fail"> <%= @test_passage.calculate_result %>% </p>
   <%= t('.test_has_failed') %>
 <% end %>
+
+<% unless params[:bages].nil? %>
+  <h3>Вы заработали:</h3>
+  <% params[:bages].each do |bage| %>
+  <% bage = Bage.find(bage) %>
+  <%= image_tag bage.image.variant(resize: "64x64"), class: 'rounded-circle float-left img-thumbnail', title: bage.title  if bage.image.attached? %>
+  <% end %>
+<% end %>
+
+<br><br>

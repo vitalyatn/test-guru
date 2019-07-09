@@ -20,5 +20,8 @@ module TestGuru
 
     config.autoload_paths << "#{Rails.root}/lib/clients"
 
+    # Используйте Vips для обработки вариантов.
+    config.active_storage.variant_processor = :vips
+
   end
 end
