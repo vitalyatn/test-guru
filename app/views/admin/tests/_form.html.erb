@@ -15,5 +15,16 @@
     <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
   </p>
 
+  <p>
+    <%= form.check_box :timer %>
+    <%= form.label :timer, "тест на время" %> <br>
+  </p>
+
+  <div class="timer hide">
+    <%= form.label :time_limit, 'Минуты' %>
+    <%= form.select :time_limit, ((1..10).map {|i| [i,i*60] }) %>
+    <%#= form.select :credit, ((0..10).map {|i| [i,i] } << ["No limit",nil]) %>
+  </div>
+
   <p><%= form.submit %></p>
 <% end %>

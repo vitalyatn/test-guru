@@ -9,6 +9,10 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
+  def has_time_limit?
+    !test.time_limit.zero?
+  end
+
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
     self.successful = true if successful?
