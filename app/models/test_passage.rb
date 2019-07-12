@@ -14,13 +14,8 @@ class TestPassage < ApplicationRecord
   end
 
   def accept!(answer_ids)
-    if time_left <= 0
-      self.current_question = test.questions.last
-      self.successful = false
-    else
-      self.correct_questions += 1 if correct_answer?(answer_ids)
-      self.successful = true if successful?
-    end
+    self.correct_questions += 1 if correct_answer?(answer_ids)
+    self.successful = true if successful?
     save!
   end
 
@@ -61,6 +56,8 @@ class TestPassage < ApplicationRecord
   def next_question
     if new_record?
       test.questions.first if test.present?
+    elsif time_left <= 0
+      nil
     else
       test.questions.order(:id).where('id > ?', current_question.id).first
     end
