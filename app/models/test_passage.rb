@@ -14,9 +14,18 @@ class TestPassage < ApplicationRecord
   end
 
   def accept!(answer_ids)
-    self.correct_questions += 1 if correct_answer?(answer_ids)
-    self.successful = true if successful?
+    if time_left <= 0
+      self.current_question = test.questions.last
+      self.successful = false
+    else
+      self.correct_questions += 1 if correct_answer?(answer_ids)
+      self.successful = true if successful?
+    end
     save!
+  end
+
+  def time_left
+    (test.time_limit - (Time.now - created_at)).to_i
   end
 
   def successful?

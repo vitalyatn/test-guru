@@ -18,7 +18,6 @@
 
 <%= form_with url: test_passage_path(@test_passage), local: true, id: 'test-passage-form', method: :put do |form| %>
   <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
-  <%# console %>
     <p>
       <%= b.check_box id: "answer_ids_#{b.object.id}" %>
       <%= b.label %>

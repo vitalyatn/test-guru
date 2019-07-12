@@ -15,6 +15,8 @@ class Test < ApplicationRecord
 
   validates :level, numericality: { only_integer: true, greater_than: 0 }
 
+  validates :time_limit, numericality: { only_integer: true, greater_than: 0 }
+
   scope :sort_by_desc, -> (category) { joins(:category).where(categories:
       { title: category }).order(title: :desc).select(:title) }
 
