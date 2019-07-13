@@ -6,7 +6,7 @@ document.addEventListener('turbolinks:load', function() {
   var message = document.querySelector('#message');
   var octiconInfo = document.querySelector('.octicon-info');
 
-  if (passwordConfirmation != null) {
+  if (passwordConfirmation) {
     passwordConfirmation.addEventListener('input',function() {
       var passwordConfirmValue = document.querySelector('#user_password_confirmation').value;
       if (passwordConfirmValue != "") {
